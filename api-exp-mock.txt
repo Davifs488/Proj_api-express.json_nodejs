@@ -1,0 +1,86 @@
+
+    Nessa parte :
+    Criamos um arquivo,para fazer divisoes
+   Colocar e inserir dados com isomia
+      server.js na base 
+
+     senha: npm run dev
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+      import app from "./src/app.js";
+
+        const port = 3000;
+
+        app.listen(port, () => {
+       console.log(`Servidor rodando no endereço http://localhost:${port}`);
+        });
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+       E o arquivo que app.js que foi criado dentro da pasta src
+       Fou criado um array de selecões para servir de mock
+
+       FICOU ASSIM:
+      
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+     import express from "express";
+
+      const app = express();
+
+      import express from "express";
+
+     const app = express();
+
+     //indicar para o express ler body com json
+     app.use(express.json());
+
+     //mock
+     const selecoes = [
+  { id: 1, selcao: "Brasil", grupo: "G" },
+  { id: 2, selcao: "Suiça", grupo: "G" },
+  { id: 3, selcao: "Servia", grupo: "G" },
+  { id: 4, selcao: "Camarões", grupo: "G" },
+    ];
+   app.get("/", (req, res) => {
+    res.send("Curso de Nodejs/Davi_dev");
+   });
+
+   app.get("/selecoes", (req, res) => {
+    res.status(200).send(selecoes);
+   });
+
+  //adicionar elementos
+  app.post("/selecoes", (req, res) => {
+  selecoes.push(req.body);
+  res.status(201).send(" Cadastrada com sucesso");
+  });
+  export default app;
+
+
+      
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+  OBS: O PACKAGE.SON EMBAIXO///// "main": "index.js",
+                                 "type": "module",
+
+   OBS: O PACKAGE.SON EMBAIXO/////  "scripts": {
+                                      "dev": "nodemon server.js",
+
+  VAI FICAR ASSIM:
+
+
+   "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
